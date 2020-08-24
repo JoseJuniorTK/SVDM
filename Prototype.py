@@ -2,8 +2,6 @@ import os
 import re
 import matplotlib.pyplot as plt
 
-nomes = []
-porcentagens = []
 a = []
 b = []
 
@@ -23,7 +21,6 @@ for line in open('/home/ryukahtk/teste.txt', 'r'):
 print(b[1])
 print(a[1])
 
-# Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = b[1], b[0]
 sizes = [a[1], a[0]]
 
