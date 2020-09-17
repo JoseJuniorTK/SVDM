@@ -1,6 +1,8 @@
 import os
 import re
 import matplotlib.pyplot as plt
+from matplotlib import rc
+import numpy as np
 
 a = []
 b = []
@@ -21,15 +23,55 @@ for line in open('/home/ryukahtk/teste.txt', 'r'):
 print(b[1])
 print(a[1])
 
-# Input dos dados para visualizacao
-labels = b[1], b[0]
-sizes = [a[1], a[0]]
+menu = input('Selecione o nivel da classificação')
+if menu == '1':
+    labels = ['Sample 1']
+    classified = float(a[1])
+    unclassified = float(a[0])
+    width = 2.0       # the width of the bars: can also be len(x) sequence
 
-# Configuracao do grafico
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')
+    fig, ax = plt.subplots()
 
-# Mostra o resultado final
-plt.show()
+    ax.bar(labels, classified, width, label='classified', color=['green'])
+    ax.bar(labels, unclassified, width, label='unclassified', color=['blue'])
+
+    ax.set_ylabel('Signifiance')
+    ax.set_title('Sample 1')
+    ax.legend()
+
+    plt.show()
+
+elif menu == '2':
+    labels = ['Sample 1']
+    proteo = float(a[4])
+    actino = float(a[228])
+    firmic = float(a[283])
+    chrolo = float(a[326])
+    teneri = float(a[335])
+    bacteriori = float(a[346])
+    gemma = float(a[397])
+    acidob = float(a[405])
+    nitros = float(a[432])
+    defferi = float(a[437])
+    width = 2.0       # the width of the bars: can also be len(x) sequence
+
+    fig, ax = plt.subplots()
+
+    ax.bar(labels, proteo, width, label='Proteobacteria', color=['green'])
+    ax.bar(labels, actino, width, label='Actinobacteria', color=['blue'])
+    ax.bar(labels, firmic, width, label='Firmicutes', color=['yellow'])
+    ax.bar(labels, chrolo, width, label='Chloroflexi', color=['orange'])
+    ax.bar(labels, teneri, width, label='Tenericutes', color=['black'])
+    ax.bar(labels, bacteriori, width, label='Bacteroidetes', color=['pink'])
+    ax.bar(labels, gemma, width, label='Gemmatimonadetes', color=['gray'])
+    ax.bar(labels, acidob, width, label='Acidobacteria', color=['red'])
+    ax.bar(labels, nitros, width, label='Nitrospirae', color=['purple'])
+    ax.bar(labels, defferi, width, label='Deferribacteres', color=['blue'])
+    ax.set_ylabel('Signifiance')
+    ax.set_title('Sample 1')
+    ax.legend()
+
+    plt.show()
+
+else:
+    print('Opção invalida')
