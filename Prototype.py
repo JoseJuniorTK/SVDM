@@ -3,6 +3,8 @@ import re
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
+import readline
+readline.parse_and_bind("tab: complete")
 
 a = []
 b = []
@@ -10,7 +12,9 @@ b = []
 print('Projeto Visualização de Dados 0.1')
 print('')
 # Parseia os dados do arquivo teste.txt
-for line in open('/home/ryukahtk/teste.txt', 'r'):
+
+fileinput = input("Input file: ")
+for line in open(fileinput, 'r'):
     a.append(re.findall(r"[\S']+", line)[0])
     b.append(re.findall(r"[\S']+", line)[5])
 
