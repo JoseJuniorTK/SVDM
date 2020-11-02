@@ -1,3 +1,4 @@
+import re
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
@@ -7,7 +8,8 @@ print('')
 
 # Parseia os dados do arquivo teste.txt
 
-def Main(a,b,fileinput):
+
+def Main(a, b, fileinput):
     for line in open(fileinput, 'r'):
         a.append(re.findall(r"[\S']+", line)[0])
         b.append(re.findall(r"[\S']+", line)[5])
